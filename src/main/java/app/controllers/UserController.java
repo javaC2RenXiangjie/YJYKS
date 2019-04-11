@@ -1,7 +1,7 @@
 package app.controllers;
 
 import app.dtos.UserDTO;
-import app.services.LoginService;
+import app.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +17,7 @@ import java.util.List;
 public class UserController {
 
     @Autowired
-    private LoginService loginService;
+    private UserService loginService;
 
     /**
      * 得到所有用户信息
@@ -25,7 +25,8 @@ public class UserController {
      */
     @GetMapping(value = "")
     public List<UserDTO> getUserInfo(){
-        System.out.println(loginService.getUserInfo().toString());
         return loginService.getUserInfo();
     }
+
+
 }
