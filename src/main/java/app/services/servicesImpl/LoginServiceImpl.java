@@ -8,6 +8,9 @@ import app.services.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class LoginServiceImpl implements LoginService {
 
@@ -15,7 +18,7 @@ public class LoginServiceImpl implements LoginService {
     private UserConvert userConvert;
 
     @Autowired
-    LoginRepo loginRepo;
+    private LoginRepo loginRepo;
 
     @Override
     public UserDTO LoginService(UserDTO userDTO) {
@@ -23,7 +26,11 @@ public class LoginServiceImpl implements LoginService {
     }
 
     @Override
-    public UserDTO getUserInfo() {
-        return userConvert.userEntityToDto(loginRepo.getUserInfo());
+    public List<UserDTO> getUserInfo() {
+        List<UserDTO> userDTOS = new ArrayList<>();
+        for (UserEntity userEntity:loginRepo.getUserInfo()) {
+            userDTOS.add(userConvert.userEntityToDto(userEntity));
+        }
+        return userDTOS;
     }
 }

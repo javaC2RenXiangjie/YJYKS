@@ -4,9 +4,13 @@ import app.dtos.UserDTO;
 import app.entities.UserEntity;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
-public interface LoginRepo extends CrudRepository<UserDTO, Long> {
+import java.util.List;
 
-    @Query(value = "select * from user where user.id = 1, nativeQuery = true")
-    UserEntity getUserInfo();
+@Repository
+public interface LoginRepo extends CrudRepository<UserEntity, Long> {
+
+    @Query(value = "select * from user", nativeQuery = true)
+    List<UserEntity> getUserInfo();
 }

@@ -1,25 +1,34 @@
 package app.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
-@Entity(name = "user")
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "user")
 public class UserEntity {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY )
+    private Long id;
+
+    @Column(name = "realName")
     private String realName;
+
+    @Column(name = "account")
     private String account;
+
+    @Column(name = "password")
     private String password;
+
+    @Column(name = "email")
     private String email;
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

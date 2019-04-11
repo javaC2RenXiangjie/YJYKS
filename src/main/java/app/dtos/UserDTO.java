@@ -1,17 +1,18 @@
 package app.dtos;
 
+
 public class UserDTO {
-    private int id;
+    private Long id;
     private String realName;
     private String account;
     private String password;
     private String email;
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
