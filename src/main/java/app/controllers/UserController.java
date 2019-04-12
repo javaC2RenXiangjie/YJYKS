@@ -1,11 +1,10 @@
 package app.controllers;
 
+import app.dtos.PromptMsgDto;
 import app.dtos.UserDTO;
 import app.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,7 +16,7 @@ import java.util.List;
 public class UserController {
 
     @Autowired
-    private UserService loginService;
+    private UserService userService;
 
     /**
      * 得到所有用户信息
@@ -25,8 +24,17 @@ public class UserController {
      */
     @GetMapping(value = "")
     public List<UserDTO> getUserInfo(){
-        return loginService.getUserInfo();
+        return userService.getUserInfo();
     }
 
+    @PostMapping(value = "/del/{account}")
+    public PromptMsgDto delUserByAccount(@PathVariable(name = "account") String account){
+        return userService.delUserByAccount(account);
+    }
+
+    @PostMapping(value = "/update")
+    public PromptMsgDto updateUser(@RequestBody UserDTO userDTO){
+        return userService.updateUser(userDTO);
+    }
 
 }

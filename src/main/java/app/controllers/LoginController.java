@@ -1,6 +1,6 @@
 package app.controllers;
 
-import app.dtos.PromptMsg;
+import app.dtos.PromptMsgDto;
 import app.services.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -19,7 +19,7 @@ public class LoginController {
      * @return
      */
     @PostMapping(value = "/{accPasStr}")
-    public PromptMsg login(@PathVariable(name = "accPasStr") String accPasStr) {
+    public PromptMsgDto login(@PathVariable(name = "accPasStr") String accPasStr) {
         System.out.println(accPasStr);
         String account = accPasStr.split("&")[0];
         String password = accPasStr.split("&")[1];

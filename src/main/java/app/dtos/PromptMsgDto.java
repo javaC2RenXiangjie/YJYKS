@@ -3,7 +3,7 @@ package app.dtos;
 /**
  *提示信息
  */
-public class PromptMsg {
+public class PromptMsgDto {
 
     private String msgContent;
 

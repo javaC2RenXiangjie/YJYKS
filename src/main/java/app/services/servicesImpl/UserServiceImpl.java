@@ -1,6 +1,7 @@
 package app.services.servicesImpl;
 
 import app.converts.UserConvert;
+import app.dtos.PromptMsgDto;
 import app.dtos.UserDTO;
 import app.entities.UserEntity;
 import app.repos.UserRepo;
@@ -27,5 +28,21 @@ public class UserServiceImpl implements UserService {
             userDTOS.add(userConvert.userEntityToDto(userEntity));
         }
         return userDTOS;
+    }
+
+    @Override
+    public PromptMsgDto delUserByAccount(String account) {
+        PromptMsgDto promptMsgDto = new PromptMsgDto();
+        userRepo.delete(userRepo.findByAccount(account));
+        promptMsgDto.setMsgContent("删除成功~");
+        return promptMsgDto;
+    }
+
+    @Override
+    public PromptMsgDto updateUser(UserDTO userDTO) {
+        PromptMsgDto promptMsgDto = new PromptMsgDto();
+        userRepo.save(userConvert.userDtoToEntity(userDTO));
+        promptMsgDto.setMsgContent("更改成功~");
+        return promptMsgDto;
     }
 }

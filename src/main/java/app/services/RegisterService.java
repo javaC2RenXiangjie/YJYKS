@@ -1,10 +1,10 @@
 package app.services;
 
 import app.dtos.PromptMsgDto;
+import app.dtos.UserDTO;
 import org.springframework.stereotype.Service;
 
 @Service
-public interface LoginService {
-
-    PromptMsgDto Login(String account, String password);
+public interface RegisterService {
+    PromptMsgDto register(UserDTO userDTO);
 }
