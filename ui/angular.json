@@ -60,7 +60,7 @@
           "options": {
             "browserTarget": "yjybs:build",
             "port": 9000,
-            "proxyConfig": "src/proxy.conf.json"
+            "proxyConfig": "proxy.conf.json"
           },
           "configurations": {
             "production": {
