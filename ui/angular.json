@@ -58,7 +58,9 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "yjybs:build"
+            "browserTarget": "yjybs:build",
+            "port": 9000,
+            "proxyConfig": "src/proxy.conf.json"
           },
           "configurations": {
             "production": {
