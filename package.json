@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "webpack-hot-server-middleware": "^0.6.0"
+  }
+}
