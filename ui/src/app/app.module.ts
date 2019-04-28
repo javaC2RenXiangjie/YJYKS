@@ -3,15 +3,16 @@ import { NgModule } from '@angular/core';
 import { RouterModule} from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { WelcomePageComponentComponent } from './welcome-page-component/welcome-page-component.component';
+import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { appRoutes } from './app.routes';
 
 @NgModule({
   declarations: [
     AppComponent,
-    WelcomePageComponentComponent,
-    MainPageComponent
+    WelcomePageComponent,
+    MainPageComponent,
+    WelcomePageComponent
   ],
   imports: [
     BrowserModule,

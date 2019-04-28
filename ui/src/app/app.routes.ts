@@ -1,7 +1,7 @@
 import { RouterModule } from '@angular/router';
 
 import { MainPageComponent} from './main-page/main-page.component';
-import { WelcomePageComponentComponent } from './welcome-page-component/welcome-page-component.component';
+import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 
 export const appRoutes = [
 
@@ -12,7 +12,7 @@ export const appRoutes = [
     },
     {
         path: 'welcome',
-        component: WelcomePageComponentComponent
+        component: WelcomePageComponent
     },
     {
         path: 'main',
@@ -20,6 +20,6 @@ export const appRoutes = [
     },
     {
         path: '**',
-        component: WelcomePageComponentComponent
+        component: WelcomePageComponent
     }
 ];
