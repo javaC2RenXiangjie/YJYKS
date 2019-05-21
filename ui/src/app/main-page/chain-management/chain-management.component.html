@@ -39,6 +39,7 @@
               <th>创建时间</th>
               <th>链接状态</th>
               <th>链接地址</th>
+              <th>操作</th>
             </tr>
             <tr>
               <td>183</td>
@@ -46,6 +47,13 @@
               <td>11-7-2014</td>
               <td><span class="label label-success">Approved</span></td>
               <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+              <td style="text-align: center;">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-default"data-toggle="modal" data-target="#myModal">查看</button>
+                  <button type="button" class="btn btn-default">替换</button>
+                  <button type="button" class="btn btn-danger">删除</button>
+                </div>
+              </td>
             </tr>
             <tr>
               <td>219</td>
@@ -53,6 +61,13 @@
               <td>11-7-2014</td>
               <td><span class="label label-warning">Pending</span></td>
               <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+              <td style="text-align: center;">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-default"data-toggle="modal" data-target="#myModal">查看</button>
+                  <button type="button" class="btn btn-default">替换</button>
+                  <button type="button" class="btn btn-danger">删除</button>
+                </div>
+              </td>
             </tr>
             <tr>
               <td>657</td>
@@ -60,6 +75,13 @@
               <td>11-7-2014</td>
               <td><span class="label label-primary">Approved</span></td>
               <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+              <td style="text-align: center;">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-default"data-toggle="modal" data-target="#myModal">查看</button>
+                  <button type="button" class="btn btn-default">替换</button>
+                  <button type="button" class="btn btn-danger">删除</button>
+                </div>
+              </td>
             </tr>
             <tr>
               <td>175</td>
@@ -67,6 +89,13 @@
               <td>11-7-2014</td>
               <td><span class="label label-danger">Denied</span></td>
               <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+              <td style="text-align: center;">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-default"data-toggle="modal" data-target="#myModal">查看</button>
+                  <button type="button" class="btn btn-default">替换</button>
+                  <button type="button" class="btn btn-danger">删除</button>
+                </div>
+              </td>
             </tr>
           </table>
         </div>
@@ -77,3 +106,36 @@
   </div>
 </section>
 <!-- /.content -->
+
+
+<!-- 模态框 -->
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="myModal">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">查看视频</h4>
+      </div>
+      <div class="modal-body">
+
+              <div class="timeline-item">
+
+                <div class="timeline-body">
+                  <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/tMWkeBIohBs"
+                            frameborder="0" allowfullscreen></iframe>
+                  </div>
+                </div>
+                <div class="timeline-footer">
+
+                </div>
+              </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
