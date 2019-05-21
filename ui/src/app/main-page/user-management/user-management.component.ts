@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-user-management',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserManagementComponent implements OnInit {
 
-  constructor() { }
+  public users: any = [];
+  constructor(private http: HttpClient) {}
 
   ngOnInit() {
+    this.http.get('api/users').subscribe(res => {
+         this.users = res;
+        });
   }
 
 }

@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule} from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
@@ -18,6 +19,8 @@ import { InstructorManagementComponent } from './main-page/instructor-management
 import { BaseMsgComponent } from './main-page/base-msg/base-msg.component';
 import { NumericalStatementComponent } from './main-page/numerical-statement/numerical-statement.component';
 import { ChartDisplayComponent } from './main-page/chart-display/chart-display.component';
+import { DefaultDisplayComponent } from './main-page/default-display/default-display.component';
+import { LoginPageComponent } from './login-page/login-page.component';
 
 @NgModule({
   declarations: [
@@ -36,11 +39,14 @@ import { ChartDisplayComponent } from './main-page/chart-display/chart-display.c
     InstructorManagementComponent,
     BaseMsgComponent,
     NumericalStatementComponent,
-    ChartDisplayComponent
+    ChartDisplayComponent,
+    DefaultDisplayComponent,
+    LoginPageComponent
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -12,7 +12,7 @@ import java.util.List;
  *登录控制模块
  */
 @RestController
-@RequestMapping(path = "/users")
+@RequestMapping(path = "/api/users")
 public class UserController {
 
     @Autowired

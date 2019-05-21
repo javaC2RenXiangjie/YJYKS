@@ -1,5 +1,6 @@
 import { RouterModule } from '@angular/router';
 
+import { LoginPageComponent } from './login-page/login-page.component';
 import { MainPageComponent} from './main-page/main-page.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { UserManagementComponent } from './main-page/user-management/user-management.component';
@@ -14,13 +15,18 @@ import { InstructorManagementComponent } from './main-page/instructor-management
 import { BaseMsgComponent } from './main-page/base-msg/base-msg.component';
 import { NumericalStatementComponent } from './main-page/numerical-statement/numerical-statement.component';
 import { ChartDisplayComponent } from './main-page/chart-display/chart-display.component';
+import { DefaultDisplayComponent } from './main-page/default-display/default-display.component';
 
 export const appRoutes = [
 
     {
         path: '',
-        redirectTo: 'welcome',
+        redirectTo: 'login',
         pathMatch: 'full'
+    },
+    {
+        path: 'login',
+        component: LoginPageComponent
     },
     {
         path: 'welcome',
@@ -30,6 +36,10 @@ export const appRoutes = [
         path: 'main',
         component: MainPageComponent,
         children: [
+            {
+                path: '',
+                component: DefaultDisplayComponent
+            },
             {
                 path: 'userManagement',
                 component: UserManagementComponent
