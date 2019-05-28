@@ -3,6 +3,7 @@ package app.services;
 import app.dtos.PromptMsgDto;
 import app.dtos.UserDTO;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -14,5 +15,7 @@ public interface UserService {
     PromptMsgDto delUserByAccount(String account);
 
     PromptMsgDto updateUser(UserDTO userDTO);
+
+    PromptMsgDto saveFaceImg(MultipartFile imgFile);
 
 }

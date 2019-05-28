@@ -20,7 +20,6 @@ public class LoginController {
      */
     @PostMapping(value = "/{accPasStr}")
     public PromptMsgDto login(@PathVariable(name = "accPasStr") String accPasStr) {
-        System.out.println(accPasStr);
         String account = accPasStr.split("&")[0];
         String password = accPasStr.split("&")[1];
         return loginService.Login(account, password);

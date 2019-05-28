@@ -14,4 +14,11 @@ public class PromptMsgDto {
     public void setMsgContent(String msgContent) {
         this.msgContent = msgContent;
     }
+
+    @Override
+    public String toString() {
+        return "PromptMsgDto{" +
+                "msgContent='" + msgContent + '\'' +
+                '}';
+    }
 }

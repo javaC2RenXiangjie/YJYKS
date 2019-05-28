@@ -4,7 +4,11 @@ import app.dtos.PromptMsgDto;
 import app.dtos.UserDTO;
 import app.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartResolver;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
 import java.util.List;
 
@@ -45,6 +49,20 @@ public class UserController {
     @PostMapping(value = "/update")
     public PromptMsgDto updateUser(@RequestBody UserDTO userDTO){
         return userService.updateUser(userDTO);
+    }
+
+
+     @Bean
+     public MultipartResolver multipartResolver() {
+         CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
+         multipartResolver.setMaxUploadSize(1000000);
+         return multipartResolver;
+     }
+
+    @PostMapping(value = "/imgPost")
+    public PromptMsgDto saveFaceImg(@RequestParam MultipartFile imgFile)throws Exception{
+        System.out.println(imgFile);
+        return userService.saveFaceImg(imgFile);
     }
 
 }

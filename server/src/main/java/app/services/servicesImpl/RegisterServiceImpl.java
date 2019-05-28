@@ -1,6 +1,6 @@
 package app.services.servicesImpl;
 
-import app.converts.UserConvert;
+import app.utils.UserConvert;
 import app.dtos.PromptMsgDto;
 import app.dtos.UserDTO;
 import app.repos.RegisterRepo;
@@ -20,13 +20,10 @@ public class RegisterServiceImpl implements RegisterService{
     @Override
     public PromptMsgDto register(UserDTO userDTO) {
         PromptMsgDto promptMsg = new PromptMsgDto();
-        if(userDTO.getAccount().length() >20 || userDTO.getAccount().length() == 0 ){
-            promptMsg.setMsgContent("账号不符合要求");
-            return promptMsg;
-        }else if(userDTO.getPassword().length() >20 || userDTO.getPassword().length() == 0 ){
+        if(userDTO.getPwd().length() >20 || userDTO.getPwd().length() == 0 ){
             promptMsg.setMsgContent("密码不符合要求");
             return promptMsg;
-        }else if(userDTO.getRealName().length() >20 || userDTO.getRealName().length() == 0){
+        }else if(userDTO.getName().length() >20 || userDTO.getName().length() == 0){
             promptMsg.setMsgContent("姓名不符合要求");
             return promptMsg;
         }else if(!userDTO.getEmail().matches("^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\\.[a-zA-Z0-9_-]+)+$")){
