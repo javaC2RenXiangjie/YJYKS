@@ -16,6 +16,6 @@ public interface UserService {
 
     PromptMsgDto updateUser(UserDTO userDTO);
 
-    PromptMsgDto saveFaceImg(MultipartFile imgFile);
+    PromptMsgDto saveFaceImg(MultipartFile imgFile, String imgName);
 
 }

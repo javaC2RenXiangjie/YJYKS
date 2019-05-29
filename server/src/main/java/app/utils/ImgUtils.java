@@ -22,14 +22,14 @@ public class ImgUtils {
      * 存图片
      * @param img
      */
-    public Boolean saveImg(MultipartFile img) {
+    public Boolean saveImg(MultipartFile img, String imgName) {
 //      存储路径问题
         if(!new File(img_store_path).exists()){
             new File(img_store_path).mkdir();
         }
 
 //      设置图片存储的位置和图片名称
-        File savefile = new File(img_store_path, img.hashCode() + "jpg");
+        File savefile = new File(img_store_path, img.hashCode() + imgName);
 
 //      存图片
         try (FileOutputStream fos = new FileOutputStream(savefile)){

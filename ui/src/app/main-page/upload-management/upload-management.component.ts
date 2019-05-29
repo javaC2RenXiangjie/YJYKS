@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import {  FileUploader, FileSelectDirective } from 'ng2-file-upload/ng2-file-upload';
 
 @Component({
   selector: 'app-upload-management',
@@ -7,9 +9,46 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UploadManagementComponent implements OnInit {
 
-  constructor() { }
+  UploadURL = 'api/users/imgPost';
+
+
+// ng2-file-upload 方式上传文件。
+  uploader: FileUploader = new FileUploader({ url: this.UploadURL, itemAlias: 'imgFile' });
+
+  file: File;
+
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
+    this.uploader.onAfterAddingFile = (file) => { file.withCredentials = false; };
+    this.uploader.onCompleteItem = (item: any, response: any, status: any, headers: any) => {
+      console.log('FileUpload:uploaded:', item, status, response);
+      alert('File uploaded successfully');
+    };
   }
+
+
+
+// 普通方式上传。
+
+  // imgFile: File;
+  // formData: FormData = new FormData();
+  // changeAfter(e) {
+  //   console.log(this.imgFile);
+  //   this.formData.append('imgFile', e.target.files[0], 'imgFile');
+  // }
+
+
+  // uploadFile() {
+  //   console.log(this.formData.get('imgFile'));
+  //   this.http.post(this.UploadURL, this.formData.get('imgFile'), {
+  //     headers: {
+  //       'Content-Type': 'multipart/form-data'
+  //     }
+  //   }).subscribe(res => console.log(res));
+  // }
+  // constructor(private http: HttpClient) {}
+  // ngOnInit() {
+  // }
 
 }

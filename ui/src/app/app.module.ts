@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule} from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { FileSelectDirective } from 'ng2-file-upload';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
@@ -41,12 +43,14 @@ import { LoginPageComponent } from './login-page/login-page.component';
     NumericalStatementComponent,
     ChartDisplayComponent,
     DefaultDisplayComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    FileSelectDirective
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

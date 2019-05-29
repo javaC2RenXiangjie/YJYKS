@@ -1,6 +1,6 @@
 package app.services.servicesImpl;
 
-import app.utils.UserConvert;
+import app.converts.UserConvert;
 import app.dtos.PromptMsgDto;
 import app.dtos.UserDTO;
 import app.repos.RegisterRepo;

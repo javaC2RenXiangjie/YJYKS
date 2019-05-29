@@ -10,6 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
  /**
@@ -52,17 +53,23 @@ public class UserController {
     }
 
 
-     @Bean
-     public MultipartResolver multipartResolver() {
-         CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
-         multipartResolver.setMaxUploadSize(1000000);
-         return multipartResolver;
+//     @Bean
+//     public MultipartResolver multipartResolver() {
+//         CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
+//         multipartResolver.setMaxUploadSize(3000000);
+//         return multipartResolver;
+//     }
+
+     @PostMapping(value = "/imgPost")
+     public PromptMsgDto saveFaceImg(@RequestBody MultipartFile imgFile)throws Exception {
+         System.out.println(imgFile);
+         return userService.saveFaceImg(imgFile, imgFile.getOriginalFilename());
      }
 
-    @PostMapping(value = "/imgPost")
-    public PromptMsgDto saveFaceImg(@RequestParam MultipartFile imgFile)throws Exception{
-        System.out.println(imgFile);
-        return userService.saveFaceImg(imgFile);
-    }
-
+//     @PostMapping(value = "/imgPost")
+//     public PromptMsgDto saveFaceImg( CommonsMultipartResolver imgFile, HttpServletRequest httpServletRequest)throws Exception {
+//         System.out.println(imgFile.resolveMultipart(httpServletRequest).getFileMap());
+////         return userService.saveFaceImg(imgFile, imgFile.getOriginalFilename());
+//         return null;
+//     }
 }

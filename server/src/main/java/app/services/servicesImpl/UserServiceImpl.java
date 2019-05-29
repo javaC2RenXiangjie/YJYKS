@@ -1,7 +1,7 @@
 package app.services.servicesImpl;
 
 import app.utils.ImgUtils;
-import app.utils.UserConvert;
+import app.converts.UserConvert;
 import app.dtos.PromptMsgDto;
 import app.dtos.UserDTO;
 import app.entities.UserEntity;
@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.net.PortUnreachableException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,11 +52,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public PromptMsgDto saveFaceImg(MultipartFile imgFile) {
+    public PromptMsgDto saveFaceImg(MultipartFile imgFile, String imgName) {
 
         PromptMsgDto promptMsgDto = new PromptMsgDto();
 
-        if(imgUtils.saveImg(imgFile)){
+        if(imgUtils.saveImg(imgFile, imgName)){
             promptMsgDto.setMsgContent("图片保存成功！");
             return promptMsgDto;
         }else {

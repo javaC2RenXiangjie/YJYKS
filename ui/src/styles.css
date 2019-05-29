@@ -1,11 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
-
-
-/* css{ */
     @import ".././node_modules/_bootstrap@3.4.1@bootstrap/dist/css/bootstrap.min.css";
     @import ".././node_modules/_font-awesome@4.7.0@font-awesome/css/font-awesome.min.css";
     @import ".././node_modules/ionicons/dist/css/ionicons.min.css";
     @import ".././node_modules/admin-lte/dist/css/adminlte.min.css";
     @import ".././node_modules/admin-lte/dist/css/skins/_all-skins.min.css";
     @import "./assets/css/jquery-jvectormap.css";
-/* }             */
