@@ -7,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChainManagementComponent implements OnInit {
 
+  mediaElement = document.getElementById('mediaElementID');
+
+  closeVideo() {
+    console.log('xxxxx');
+  }
   constructor() { }
 
   ngOnInit() {
