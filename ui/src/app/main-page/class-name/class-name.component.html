@@ -1,8 +1,8 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
   <h1>
-    class-name works!
-    <small>Optional description</small>
+    实验项目增删改查
+    <small>操作实验项目</small>
   </h1>
   <ol class="breadcrumb">
     <li><a href="main"><i class="fa fa-dashboard"></i> Level</a></li>
@@ -13,7 +13,178 @@
 <!-- Main content -->
 <section class="content container-fluid">
 
-  class-name works!
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box">
+        <div class="box-header">
+          <h3 class="box-title">实验项目列表</h3>
+          <button type="button" class="pull-right btn btn-success" *ngIf='userAuth == 3'
+            (click)="openAddTrModal()">添加新项目</button>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body table-responsive no-padding">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th style="text-align: center;">项目编号</th>
+                <th style="text-align: center;">教师</th>
+                <th style="text-align: center;">学科</th>
+                <th style="text-align: center;">班级人数</th>
+                <th style="text-align: center;">开课时间</th>
+                <th style="text-align: center;">课程进度</th>
+                <th style="text-align: center;" *ngIf="userAuth >= 3">可执行操作</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let tr of allTrs">
+              <tr>
+                <td style="text-align: center;">{{tr.id}}</td>
+
+
+                <td style="text-align: center;" *ngIf="tr.teacherid == 1">教师一号</td>
+                <td style="text-align: center;" *ngIf="tr.teacherid == 2">教师二号</td>
+                <td style="text-align: center;" *ngIf="tr.teacherid == 3">教师三号</td>
+
+                <td style="text-align: center;" *ngIf="tr.subject_id == 1">一号课程</td>
+                <td style="text-align: center;" *ngIf="tr.subject_id == 2">二号课程</td>
+                <td style="text-align: center;" *ngIf="tr.subject_id == 3">三号课程</td>
+
+
+                <td style="text-align: center;">{{tr.num}}</td>
+                <td style="text-align: center;">{{tr.addtime}}</td>
+                <td style="text-align: center;"><span class="label label-success">{{tr.status}}</span></td>
+                <td style="text-align: center;" *ngIf="userAuth >= 3">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-default" *ngIf="userAuth >= 2"
+                      (click)="modify(tr)">修改</button>
+                    <button type="button" class="btn btn-danger" *ngIf="userAuth >= 3"
+                      (click)="deleteTr(tr)">删除</button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- /.box-body -->
+      </div>
+      <!-- /.box -->
+    </div>
+  </div>
 
 </section>
 <!-- /.content -->
+
+
+<!-- 修改model -->
+<div class="modal fade bs-example-modal-default" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+  id="modify">
+  <div class="modal-dialog modal-default" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="box box-primary">
+              <div class="box-header with-border">
+                <h3 class="box-title">课程详细信息</h3>
+              </div>
+              <form role="form">
+                <div class="box-body">
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">课程编号</label>
+                    <input type="text" class="form-control" [disabled]='true' [(ngModel)]="modifyedTr.id" name='id'>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">教师</label>
+                    <input type="text" class="form-control" [disabled]="true" [(ngModel)]="modifyedTr.teacherid"
+                      name='teacherid'>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">学科</label>
+                    <input type="text" class="form-control" [disabled]="false" [(ngModel)]="modifyedTr.subject_id"
+                      name='subject_id'>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">班级人数</label>
+                    <input type="text" class="form-control" [disabled]="false" [(ngModel)]="modifyedTr.num"
+                      name='num'>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">开课时间</label>
+                    <input type="text" class="form-control" [disabled]="true" [(ngModel)]="modifyedTr.addtime"
+                      name='addtime'>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">课程进度</label>
+                    <input type="text" class="form-control" [disabled]="false" [(ngModel)]="modifyedTr.status" name='status'>
+                  </div>
+
+
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-dismiss="modal" (click)="update()" *ngIf="userAuth >= 2">提交编辑</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 创建submodel -->
+<div class="modal fade bs-example-modal-default" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+  id="create">
+  <div class="modal-dialog modal-default" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="box box-primary">
+              <div class="box-header with-border">
+                <h3 class="box-title">填写课程信息</h3>
+              </div>
+              <form role="form">
+                <div class="box-body">
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">课程编号</label>
+                    <input type="text" class="form-control" [disabled]='true' [(ngModel)]="newTr.id" name='id'>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">教师</label>
+                    <input type="text" class="form-control" [disabled]="false" [(ngModel)]="newTr.teacherid" name='teacherid'>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">学科</label>
+                    <input type="text" class="form-control" [disabled]="false" [(ngModel)]="newTr.subject_id" name='subject_id'>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">班级人数</label>
+                    <input type="text" class="form-control" [disabled]="false" [(ngModel)]="newTr.num" name='num'>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">开课时间</label>
+                    <input type="text" class="form-control" [disabled]="true" [(ngModel)]="newTr.addtime" name='addtime'>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">课程进度</label>
+                    <input type="text" class="form-control" [disabled]="false" [(ngModel)]="newTr.status" name='status'>
+                  </div>
+
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-dismiss="modal" (click)="addTr()">确认添加</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+      </div>
+    </div>
+  </div>
+</div>

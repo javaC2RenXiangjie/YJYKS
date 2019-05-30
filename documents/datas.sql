@@ -21,3 +21,11 @@ INSERT INTO `yjyks`.`equip` (`store`, `addtime`, `status`, `instruction`) VALUES
 INSERT INTO `yjyks`.`equip` (`store`, `addtime`, `status`, `instruction`) VALUES ('四号楼', '2019-5-26', '正常', '简介简介简介');
 INSERT INTO `yjyks`.`equip` (`store`, `addtime`, `status`, `instruction`) VALUES ('五号楼', '2019-5-25', '正常', '简介简介简介');
 INSERT INTO `yjyks`.`equip` (`store`, `addtime`, `status`, `instruction`) VALUES ('六号楼', '2019-5-24', '正常', '简介简介简介');
+
+#trinfo表数据
+INSERT INTO `yjyks`.`trinfo` (`teacher_id`, `subject_id`, `num`, `status`, `addtime`) VALUES ('1', '1', '56', '正常上课', '2019-05-30');
+INSERT INTO `yjyks`.`trinfo` (`teacher_id`, `subject_id`, `num`, `status`, `addtime`) VALUES ('1', '1', '30', '正常上课', '2019-05-39');
+INSERT INTO `yjyks`.`trinfo` (`teacher_id`, `subject_id`, `num`, `status`, `addtime`) VALUES ('1', '1', '98', '正常上课', '2019-05-38');
+INSERT INTO `yjyks`.`trinfo` (`teacher_id`, `subject_id`, `num`, `status`, `addtime`) VALUES ('1', '1', '36', '正常上课', '2019-05-37');
+INSERT INTO `yjyks`.`trinfo` (`teacher_id`, `subject_id`, `num`, `status`, `addtime`) VALUES ('1', '1', '30', '正常上课', '2019-05-36');
+INSERT INTO `yjyks`.`trinfo` (`teacher_id`, `subject_id`, `num`, `status`, `addtime`) VALUES ('1', '1', '38', '正常上课', '2019-05-35');
