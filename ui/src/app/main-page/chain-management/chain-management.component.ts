@@ -7,9 +7,12 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./chain-management.component.css']
 })
 export class ChainManagementComponent implements OnInit {
-
+// 用户权限设置
   user: any = localStorage.getItem('user');
-  userAuth: any = this.user.authority;
+  userAuth: any;
+
+
+
   videoSrc: string;
   allFiles: any;
   changeVideoSrc(p) {
@@ -21,6 +24,7 @@ export class ChainManagementComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
+    this.userAuth = localStorage.getItem('userAuth');
     this.http.get('/api/files').subscribe(res => this.allFiles = res);
   }
 

@@ -81,6 +81,15 @@ create table tinfo(
     primary key(id)
 );
 
+create table equip(  
+id int auto_increment,     
+store varchar(50),     
+addtime datetime,     
+status varchar(20),     
+instruction varchar(500),  
+primary key(id)
+);
+
 create table trinfo(
 	id int auto_increment,#课程编号
     teacher_id int,#教师编号

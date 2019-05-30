@@ -74,14 +74,6 @@ public class UserServiceImpl implements UserService {
         fileEntity.setAdminId(1);
         fileEntity.setNewstagId(1);
         fileEntity.setRemark("视频简介");
-//        private String title;
-//        private String content;
-//        private int viewNum;
-//        private int adminId;
-//        private int newstagId;
-//        private String img;
-//        private String remark;
-//        private Date addTime;
         if(saveFileMsgDto.isSuccessedOrNot()){
             fileEntity.setContent(saveFileMsgDto.getFileName());
             fileEntity.setAddTime(new Date());

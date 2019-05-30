@@ -55,8 +55,8 @@
                 <td style="text-align: center;">
                   <div class="btn-group">
                     <button type="button" class="btn btn-default"data-toggle="modal" data-target="#myModal" (click)= "changeVideoSrc(file.content)">查看</button>
-                    <button type="button" class="btn btn-default"  *ngIf = "userAuth < 3">替换</button>
-                    <button type="button" class="btn btn-danger"  *ngIf = "userAuth < 3">删除</button>
+                    <button type="button" class="btn btn-default"  *ngIf = "userAuth >= 2">替换</button>
+                    <button type="button" class="btn btn-danger"  *ngIf = "userAuth >= 2">删除</button>
                   </div>
                 </td>
               </tr>
