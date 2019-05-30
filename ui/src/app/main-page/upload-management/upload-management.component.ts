@@ -13,7 +13,7 @@ export class UploadManagementComponent implements OnInit {
 
 
 // ng2-file-upload 方式上传文件。
-  uploader: FileUploader = new FileUploader({ url: this.UploadURL, itemAlias: 'imgFile' });
+  uploader: FileUploader = new FileUploader({ url: this.UploadURL, itemAlias: 'file' });
 
   file: File;
 
@@ -22,8 +22,7 @@ export class UploadManagementComponent implements OnInit {
   ngOnInit() {
     this.uploader.onAfterAddingFile = (file) => { file.withCredentials = false; };
     this.uploader.onCompleteItem = (item: any, response: any, status: any, headers: any) => {
-      console.log('FileUpload:uploaded:', item, status, response);
-      alert('File uploaded successfully');
+      alert(item);
     };
   }
 

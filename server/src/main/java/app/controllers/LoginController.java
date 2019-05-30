@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-@RequestMapping(path = "/login")
+@RequestMapping(path = "/api/login")
 public class LoginController {
 
     @Autowired
@@ -20,8 +20,8 @@ public class LoginController {
      */
     @PostMapping(value = "/{accPasStr}")
     public PromptMsgDto login(@PathVariable(name = "accPasStr") String accPasStr) {
-        String account = accPasStr.split("&")[0];
+        String email = accPasStr.split("&")[0];
         String password = accPasStr.split("&")[1];
-        return loginService.Login(account, password);
+        return loginService.Login(email, password);
     }
 }

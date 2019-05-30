@@ -12,10 +12,10 @@ public interface UserService {
 
     List<UserDTO> getUserInfo();
 
-    PromptMsgDto delUserByAccount(String account);
+    PromptMsgDto delUserByEmail(String email);
 
     PromptMsgDto updateUser(UserDTO userDTO);
 
-    PromptMsgDto saveFaceImg(MultipartFile imgFile, String imgName);
+    PromptMsgDto saveFile(MultipartFile file, String fileName);
 
 }

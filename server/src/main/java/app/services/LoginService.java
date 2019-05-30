@@ -6,5 +6,5 @@ import org.springframework.stereotype.Service;
 @Service
 public interface LoginService {
 
-    PromptMsgDto Login(String account, String password);
+    PromptMsgDto Login(String email, String password);
 }

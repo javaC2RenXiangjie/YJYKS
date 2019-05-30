@@ -25,6 +25,33 @@ public class UserEntity {
     private String idStatus;
     @Column(name = "add_time")
     private Date addTime;
+    private int authority;
+
+    @Override
+    public String toString() {
+        return "UserEntity{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", pwd='" + pwd + '\'' +
+                ", gender=" + gender +
+                ", email='" + email + '\'' +
+                ", idCard='" + idCard + '\'' +
+                ", phone='" + phone + '\'' +
+                ", face='" + face + '\'' +
+                ", area='" + area + '\'' +
+                ", idStatus='" + idStatus + '\'' +
+                ", addTime=" + addTime +
+                ", authority=" + authority +
+                '}';
+    }
+
+    public int getAuthority() {
+        return authority;
+    }
+
+    public void setAuthority(int authority) {
+        this.authority = authority;
+    }
 
     public Long getId() {
         return id;
@@ -114,20 +141,4 @@ public class UserEntity {
         this.addTime = addTime;
     }
 
-    @Override
-    public String toString() {
-        return "UserEntity{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", pwd='" + pwd + '\'' +
-                ", gender=" + gender +
-                ", email='" + email + '\'' +
-                ", idCard='" + idCard + '\'' +
-                ", phone='" + phone + '\'' +
-                ", face='" + face + '\'' +
-                ", area='" + area + '\'' +
-                ", idStatus='" + idStatus + '\'' +
-                ", addTime=" + addTime +
-                '}';
-    }
 }

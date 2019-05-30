@@ -24,6 +24,7 @@ public class UserConvert {
         userEntity.setArea(userDTO.getArea());
         userEntity.setIdStatus(userDTO.getIdStatus());
         userEntity.setAddTime(userDTO.getAddTime());
+        userEntity.setAuthority(userDTO.getAuthority());
         return userEntity;
     }
 
@@ -45,6 +46,7 @@ public class UserConvert {
         userDTO.setArea(userEntity.getArea());
         userDTO.setIdStatus(userEntity.getIdStatus());
         userDTO.setAddTime(userEntity.getAddTime());
+        userDTO.setAuthority(userEntity.getAuthority());
         return userDTO;
     }
 }

@@ -17,6 +17,7 @@ public interface UserRepo extends CrudRepository<UserEntity, Long> {
     @Query(value = "select * from user", nativeQuery = true)
     List<UserEntity> getUserInfo();
 
-    @Query(value = "select * from user where account = ?1", nativeQuery = true)
-    UserEntity findByAccount(String account);
+    @Query(value = "select * from user where email = ?1", nativeQuery = true)
+    UserEntity findByEmail(String email);
+
 }

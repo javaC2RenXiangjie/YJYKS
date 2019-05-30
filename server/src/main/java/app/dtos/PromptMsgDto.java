@@ -6,6 +6,24 @@ package app.dtos;
 public class PromptMsgDto {
 
     private String msgContent;
+    private int code;
+    private Object ob;
+
+    public Object getOb() {
+        return ob;
+    }
+
+    public void setOb(Object ob) {
+        this.ob = ob;
+    }
+
+    public int getCode() {
+        return code;
+    }
+
+    public void setCode(int code) {
+        this.code = code;
+    }
 
     public String getMsgContent() {
         return msgContent;
@@ -19,6 +37,8 @@ public class PromptMsgDto {
     public String toString() {
         return "PromptMsgDto{" +
                 "msgContent='" + msgContent + '\'' +
+                ", code=" + code +
+                ", ob=" + ob +
                 '}';
     }
 }

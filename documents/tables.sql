@@ -40,8 +40,10 @@ create table user(
     area varchar(200),#用户所在地区
 	id_status smallint,#身份证状态
     add_time datetime,#添加时间
+    authority int,#用户权限
     primary key(id)
 );
+
 create table user_log(
 	id int auto_increment,#登录日志编号
     user_id int,#用户id
@@ -90,8 +92,8 @@ create table trinfo(
 );
 create table viosinfo(
 	id int auto_increment,#视频编号
-    title varchar(100),#视频编号
-    contetn varchar(20000),#视频
+    title varchar(100),#视频标题
+    content varchar(20000),#视频内容链接
     view_num int,#视频浏览量
     admin_id int,#管理员id
     newstag_id int,#标签id
@@ -100,14 +102,5 @@ create table viosinfo(
     addtime datetime,#添加时间
 	primary key(id)
 );
-INSERT INTO `yjyks`.`user` (`name`, `pwd`, `gender`, `email`, `id_card`, `phone`, `face`, `area`, `id_status`, `add_time`) 
-		VALUES ('雍嘉远', '123456', '1', '1021031476@qq.com', '123123123123', '12312312', '123123', 'sh', '1', '2019-05-01 00:00:00');
-INSERT INTO `yjyks`.`user` (`name`, `pwd`, `gender`, `email`, `id_card`, `phone`, `face`, `area`, `id_status`, `add_time`) 
-		VALUES ('rxj', '123456', '1', '1021031476@qq.com', '123123123123', '12312312', '123123', 'sh', '1', '2019-05-01 00:00:00');
-INSERT INTO `yjyks`.`user` (`name`, `pwd`, `gender`, `email`, `id_card`, `phone`, `face`, `area`, `id_status`, `add_time`) 
-		VALUES ('任向杰', '123456', '1', '1021031476@qq.com', '123123123123', '12312312', '123123', 'sh', '1', '2019-05-01 00:00:00');
-INSERT INTO `yjyks`.`user` (`name`, `pwd`, `gender`, `email`, `id_card`, `phone`, `face`, `area`, `id_status`, `add_time`) 
-		VALUES ('雍嘉远1', '123456', '1', '1021031476@qq.com', '123123123123', '12312312', '123123', 'sh', '1', '2019-05-01 00:00:00');
-
 
 

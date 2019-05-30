@@ -15,6 +15,15 @@ public class UserDTO {
     private String area;
     private String idStatus;
     private Date addTime;
+    private int authority;
+
+    public int getAuthority() {
+        return authority;
+    }
+
+    public void setAuthority(int authority) {
+        this.authority = authority;
+    }
 
     public Long getId() {
         return id;
@@ -118,6 +127,7 @@ public class UserDTO {
                 ", area='" + area + '\'' +
                 ", idStatus='" + idStatus + '\'' +
                 ", addTime=" + addTime +
+                ", authority=" + authority +
                 '}';
     }
 }

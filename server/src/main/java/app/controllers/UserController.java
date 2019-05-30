@@ -4,13 +4,9 @@ import app.dtos.PromptMsgDto;
 import app.dtos.UserDTO;
 import app.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartResolver;
-import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
  /**
@@ -34,12 +30,12 @@ public class UserController {
 
     /**
      * 删除用户
-     * @param account
+     * @param email
      * @return
      */
-    @PostMapping(value = "/delete/{account}")
-    public PromptMsgDto delUserByAccount(@PathVariable(name = "account") String account){
-        return userService.delUserByAccount(account);
+    @PostMapping(value = "/delete/{email}")
+    public PromptMsgDto delUserByEmail(@PathVariable(name = "email") String email){
+        return userService.delUserByEmail(email);
     }
 
     /**
@@ -61,9 +57,8 @@ public class UserController {
 //     }
 
      @PostMapping(value = "/imgPost")
-     public PromptMsgDto saveFaceImg(@RequestBody MultipartFile imgFile)throws Exception {
-         System.out.println(imgFile);
-         return userService.saveFaceImg(imgFile, imgFile.getOriginalFilename());
+     public PromptMsgDto saveFile(@RequestBody MultipartFile file)throws Exception {
+         return userService.saveFile(file, file.getOriginalFilename());
      }
 
 //     @PostMapping(value = "/imgPost")

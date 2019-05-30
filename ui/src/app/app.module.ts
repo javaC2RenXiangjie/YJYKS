@@ -4,6 +4,8 @@ import { RouterModule} from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { FileSelectDirective } from 'ng2-file-upload';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatVideoModule } from 'mat-video';
 
 import { AppComponent } from './app.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
@@ -50,7 +52,9 @@ import { LoginPageComponent } from './login-page/login-page.component';
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatVideoModule
   ],
   providers: [],
   bootstrap: [AppComponent]
