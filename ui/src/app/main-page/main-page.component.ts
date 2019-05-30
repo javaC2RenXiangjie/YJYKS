@@ -8,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class MainPageComponent implements OnInit {
 
   user: any = localStorage.getItem('user');
-  userAuth: any = this.user.authority;
-  userName: any = this.user.name;
+  userAuth: any;
+  userName: any;
 
   logOut() {
     localStorage.clear();
